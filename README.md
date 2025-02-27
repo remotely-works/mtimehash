@@ -1,7 +1,7 @@
 # mtimehash
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/slsyy/strintern.svg)](https://pkg.go.dev/github.com/slsyy/mtimehash)
-[![Test](https://github.com/slsyy/mtimehash/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/slsyy/mtimehash/actions/workflows/test.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/remotely-works/mtimehash.svg)](https://pkg.go.dev/github.com/remotely-works/mtimehash)
+[![Test](https://github.com/remotely-works/mtimehash/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/remotely-works/mtimehash/actions/workflows/test.yml)
 
 CLI to modify files mtime (modification data time) based on the hash of the file content. This make it deterministic
 regardless of when the file was created or modified.
