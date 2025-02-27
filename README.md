@@ -8,7 +8,7 @@ regardless of when the file was created or modified.
 
 ## Instalation
 ```shell
-go install github.com/slsyy/mtimehash/cmd/mtimehash@latest
+go install github.com/remotely-works/mtimehash/cmd/mtimehash@latest
 ```
 
 ## Rationale 
