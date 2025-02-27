@@ -1,6 +1,6 @@
 module github.com/remotely-works/mtimehash
 
-go 1.23.4
+go 1.24
 
 require (
 	github.com/google/go-cmdtest v0.4.0
