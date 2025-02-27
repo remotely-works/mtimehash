@@ -1,4 +1,4 @@
-module github.com/slsyy/mtimehash
+module github.com/remotely-works/mtimehash
 
 go 1.23.4
 
