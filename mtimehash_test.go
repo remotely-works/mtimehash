@@ -7,7 +7,6 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -23,10 +22,10 @@ func TestProcess(t *testing.T) {
 		require.NoError(t, Process(slices.Values(files), 1000000000))
 
 		mtimes := getMtimes(t, files)
-		assert.Equal(t, map[string]int64{
-			"a.txt": 259627185,
-			"b.txt": 613142970,
-			"c.txt": 259627185,
+		require.Equal(t, map[string]int64{
+			"a.txt": 732727677,
+			"b.txt": 396832401,
+			"c.txt": 732727677,
 		}, mtimes)
 	})
 
@@ -34,9 +33,9 @@ func TestProcess(t *testing.T) {
 		require.NoError(t, Process(slices.Values(files), 2))
 
 		mtimes := getMtimes(t, files)
-		assert.Equal(t, map[string]int64{
+		require.Equal(t, map[string]int64{
 			"a.txt": 1,
-			"b.txt": 0,
+			"b.txt": 1,
 			"c.txt": 1,
 		}, mtimes)
 	})
@@ -55,13 +54,13 @@ func TestProcess(t *testing.T) {
 		badFiles = append(badFiles, nonReadableFilePath)
 
 		err := Process(slices.Values(slices.Concat(badFiles, files)), 1000000000)
-		assert.Error(t, err)
+		require.Error(t, err)
 
 		mtimes := getMtimes(t, files)
-		assert.Equal(t, map[string]int64{
-			"a.txt": 259627185,
-			"b.txt": 613142970,
-			"c.txt": 259627185,
+		require.Equal(t, map[string]int64{
+			"a.txt": 732727677,
+			"b.txt": 396832401,
+			"c.txt": 732727677,
 		}, mtimes)
 	})
 }

@@ -1,7 +1,7 @@
 package mtimehash
 
 import (
-	"crypto/sha256"
+	"crypto/sha3"
 	"encoding/binary"
 	"fmt"
 	"io"
@@ -54,7 +54,7 @@ func updateMtime(filePath string, maxUnixTime int64) error {
 		return fmt.Errorf("%s is not a regular file, got %s", filePath, s.Mode())
 	}
 
-	h := sha256.New()
+	h := sha3.New256()
 	if _, err := io.Copy(h, f); err != nil {
 		return fmt.Errorf("hash file: %w", err)
 	}

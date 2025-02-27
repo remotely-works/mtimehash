@@ -5,7 +5,7 @@ go 1.24
 require (
 	github.com/google/go-cmdtest v0.4.0
 	github.com/sourcegraph/conc v0.3.0
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.10.0
 	github.com/urfave/cli/v2 v2.27.5
 	go.uber.org/automaxprocs v1.6.0
 )

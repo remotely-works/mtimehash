@@ -3,27 +3,20 @@ on: [ push, pull_request ]
 jobs:
   build:
     name: Test
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, macos-latest ]
-        go-version:
-          - '1.23.x'
-    runs-on: ${{ matrix.os }}
     steps:
-      - name: Set up Go ${{ matrix.go-version }}
-        uses: actions/setup-go@v1
-        with:
-          go-version: ${{ matrix.go-version }}
-        id: go
-
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
 
       - name: golangci-lint
-        if: matrix.os == 'ubuntu-latest'
         uses: golangci/golangci-lint-action@v6
         with:
-          version: v1.63
+          args: --timeout=1m
+          skip-cache: false
 
       - name: Test
         run: go test -v -race ./...
